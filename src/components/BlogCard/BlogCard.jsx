@@ -3,13 +3,19 @@ import './BlogCard.scss'
 import { countWords } from '../../helpers';
 import img from "../../assets/heroImage.jpeg"
 import img2 from '../../assets/remix1.jpg'
+import { useNavigate } from 'react-router-dom';
 
 
 function BlogCard({ title, date, cardImg, textContent, profileImg, name }) {
+  const navigate = useNavigate();
+
+  function routeToDetail() {
+    navigate('/blogdetail');
+  }
   
   console.log(cardImg,'=>',img);
   return (
-    <div className='blog_card'>
+    <div className='blog_card' onClick={routeToDetail}>
         <div className="image_container">
               <img src={img} alt="cardImg" />
               <div className="category">

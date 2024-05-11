@@ -8,6 +8,7 @@ import CreateBlog from './pages/createBlog/CreateBlog';
 import Login from './pages/login/Login';
 import Registration from './pages/registration/Registration';
 import Profile from './pages/profile/Profile';
+import BlogDetail from './pages/blogdetail/BlogDetail';
 
  function App() {
   
@@ -23,6 +24,11 @@ import Profile from './pages/profile/Profile';
          {
            path: '/blogs',
            element: <Blogs/>
+         }
+         ,
+         {
+           path: '/blogdetail',
+           element: <BlogDetail/>
          }
          ,
          {
