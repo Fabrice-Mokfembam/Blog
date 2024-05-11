@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import{Link} from 'react-router-dom'
 import "./Navbar.scss";
 import menu from "../../../public/assets/menu.png";
 
@@ -14,10 +15,10 @@ function Navbar() {
         </a>
       </div>
       <div className="nav_section_2">
-        <a href="/">Home</a>
-        <a href="/blogs">Blogs</a>
-        <a href="/authors">Authors</a>
-        <a href="/create">Create Blog</a>
+        <Link to="/">Home</Link>
+        <Link to="/blogs">Blogs</Link>
+        <Link to="/authors">Authors</Link>
+        <Link to="/create">Create Blog</Link>
       </div>
       <div className="nav_section_3">
         <a href="" className="third">
