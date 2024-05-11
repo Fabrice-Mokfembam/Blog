@@ -50,6 +50,7 @@ function Blogs() {
               title={item.title}
               date={item.date}
               cardImg={item.imgSrc}
+          
               textContent={item.textContent}
               profileImg={item.profileImgSrc}
               name={item.author}

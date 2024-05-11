@@ -1,39 +1,39 @@
 import React, { useState } from "react";
 import "./Author.scss";
 import { FaChevronLeft, FaChevronRight, FaStar } from "react-icons/fa";
-import me from "../../../public/assets/remix1.jpg";
+import me from "../../assets/remix1.jpg";
 
 const cards = [
   {
-    image: "../../../public/assets/remix1.jpg",
+    image: "../../assets/remix1.jpg",
     name: "Alcantara F",
     stars: 4,
     postCount: 10,
     categories: ["science", "Engineering"],
   },
   {
-    image: "../../../public/assets/remix1.jpg",
+    image: "../../assets/remix1.jpg",
     name: "John Doe",
     stars: 3,
     postCount: 5,
     categories: ["technology", "programming"],
   },
   {
-    image: "../../../public/assets/remix1.jpg",
+    image: "../../assets/remix1.jpg",
     name: "Jane Smith",
     stars: 5,
     postCount: 15,
     categories: ["art", "design"],
   },
   {
-    image: "../../../public/assets/remix1.jpg",
+    image: "../../assets/remix1.jpg",
     name: "Alex Johnson",
     stars: 2,
     postCount: 8,
     categories: ["business", "finance"],
   },
   {
-    image: "../../../public/assets/remix1.jpg",
+    image: "../../assets/remix1.jpg",
     name: "Emily Brown",
     stars: 1,
     postCount: 3,

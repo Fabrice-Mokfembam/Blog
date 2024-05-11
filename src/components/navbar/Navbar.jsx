@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import{Link} from 'react-router-dom'
 import "./Navbar.scss";
-import menu from "../../../public/assets/menu.png";
+import menu from "../../assets/menu.png";
 
 function Navbar() {
  const [open, setOpen] = useState(false);

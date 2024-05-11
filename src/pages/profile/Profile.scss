@@ -112,6 +112,11 @@
         margin: 0 auto;
         margin-top: 2.5rem;
         gap: 1rem;
+
+
+         @include x-small{
+            margin-top: 5rem;
+        }
     }
 
     .profile_bottom_section{
@@ -123,7 +128,7 @@
 
 
         @include x-small{
-            margin-top: 1rem;
+            margin-top: 5rem;
         }
     }
 }

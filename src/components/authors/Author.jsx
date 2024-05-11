@@ -1,6 +1,6 @@
 import React from 'react'
 import './Author.scss'
-import img from '../../../public/assets/remix1.jpg'
+import img from '../../assets/remix1.jpg'
 
 function Author() {
   return (

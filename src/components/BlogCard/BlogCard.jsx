@@ -1,14 +1,16 @@
 import React from 'react'
 import './BlogCard.scss'
-
 import { countWords } from '../../helpers';
+import img from "../../assets/heroImage.jpeg"
 
 
-function BlogCard({title,date,cardImg,textContent,profileImg,name}) {
+function BlogCard({ title, date, cardImg, textContent, profileImg, name }) {
+  
+  console.log(cardImg,'=>',img);
   return (
     <div className='blog_card'>
         <div className="image_container">
-              <img src={cardImg} alt="cardImg" />
+              <img src={img} alt="cardImg" />
               <div className="category">
                   science
               </div>
