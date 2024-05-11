@@ -78,7 +78,7 @@ function stars(num) {
         <FaChevronLeft className="change_icons" onClick={handlePrevPerson}/>
         {cards.slice(index1,index2).map((item) => (
           <div className="each_card_container" key={item.categories}>
-            <img src={item.image} alt="" />
+            <img src={me} alt="" />
             <div className="credentials">
               <h2>{item.name }</h2>
               <span>{ stars(item.stars)}</span>

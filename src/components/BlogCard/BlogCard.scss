@@ -10,7 +10,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 18px;
 
    @include x-small{
     max-width: 100%;
@@ -46,6 +46,7 @@
 
   h4,h5{
     color: var(--text-color);
+    line-height: 1.6rem;
   }
   h2{
     margin: 3px 0px;
