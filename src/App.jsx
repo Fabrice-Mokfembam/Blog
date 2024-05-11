@@ -5,6 +5,9 @@ import Home from './pages/home/Home';
 import Blogs from './pages/blogs/Blogs';
 import Author from './pages/Authors/Author';
 import CreateBlog from './pages/createBlog/CreateBlog';
+import Login from './pages/login/Login';
+import Registration from './pages/registration/Registration';
+import Profile from './pages/profile/Profile';
 
  function App() {
   
@@ -31,7 +34,19 @@ import CreateBlog from './pages/createBlog/CreateBlog';
            path: '/create',
            element: <CreateBlog/>
          }
+         ,
+         {
+           path: '/profile',
+           element: <Profile/>
+         }
        ]
+     }, {
+       path: '/login',
+       element:<Login/>
+     }
+     , {
+       path: '/registration',
+       element:<Registration/>
      }
    ])
 
