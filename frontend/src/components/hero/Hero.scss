@@ -1,0 +1,70 @@
+@import '../../index.scss';
+@import '../../../generalsass/responsive.scss';
+
+
+.hero_container{
+   @include page_margin;
+    height: calc(100vh - 95px);
+    @include centeredElement;
+    padding: 20px 0px;
+
+    @include small{
+        display: flex;
+        flex-direction: column;
+        padding: 10px auto;
+    }
+
+
+    .hero_text_container{
+       flex: 2;
+       height: 100%;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-around;
+       position: relative;
+
+
+       h1{
+        position: absolute;
+        top: 60px;
+        font-size: 35px;
+        padding: 10px;
+
+        @include medium{
+            font-size: 30px;
+        }
+
+        @include small{
+            position: initial;
+        }
+       }
+
+       button{
+        display: inline-block;
+        width: 200px;
+        padding: 12px 20px;
+        border-radius: 6px;
+        position: absolute;
+        left: 20px;
+        bottom: 130px;
+        background-color: var(--primary-color);
+        color: var(--background-color);
+        border: none;
+
+        @include small{
+            position: initial;
+            margin-left: 10px;
+        }
+       }
+    }
+
+    .hero_image_container{
+      flex: 2;
+
+
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+}

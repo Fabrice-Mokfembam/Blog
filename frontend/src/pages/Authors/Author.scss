@@ -1,0 +1,71 @@
+@import '../../index.scss';
+@import '../../../generalsass/responsive.scss';
+
+
+.author_main_container {
+    @include page_margin;
+    min-height: calc(100vh - 80px - 320px);
+    margin-top: 3rem;
+
+    h3,h2 {
+        @include centeredElement;
+        font-size: 25px;
+        font-style: oblique;
+        text-align: center;
+        padding: 6px
+    }
+
+    @include x-small {
+
+        min-height: auto;
+    }
+
+    .writers_container {
+        @include centeredElement;
+        margin-top: 2rem;
+        gap: 1rem;
+
+        .each_card_container {
+            width: 70%;
+            height: 300px;
+            border: 1px solid var(--secondary-color);
+            padding: 1rem;
+            @include centeredElement;
+            gap: 1rem;
+            border-radius: 10px;
+
+            @include x-small {
+                @include centerVertical;
+                height: auto;
+            }
+
+            img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+            }
+
+            .credentials {
+
+                div {
+                    @include centeredElement;
+                    gap: .5rem;
+
+                    h4 {
+                        padding: 10px;
+                        background-color: aliceblue;
+                        border-radius: 4px;
+                    }
+                }
+
+                @include x-small {
+                    text-align: center;
+                }
+            }
+        }
+
+        .change_icons {
+            font-size: 35px;
+        }
+    }
+}

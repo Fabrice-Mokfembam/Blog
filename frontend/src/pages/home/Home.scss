@@ -1,0 +1,54 @@
+@import '../../index.scss';
+@import '../../../generalsass/responsive.scss';
+
+
+.blogs_section_container{
+     @include page_margin;
+
+
+    h1{
+        display: block;
+        @include centeredElement;
+
+          @include medium{
+            font-size: 30px;
+        }
+    }
+
+    .blogs_wrapper{
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        
+    @include large{
+     justify-content: center;
+   }
+
+        @include x-small{
+          flex-direction: column;
+           align-items: center;
+        }
+    }
+}
+
+.featuring_part{
+  width: 100%;
+  height: 350px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--text-color);
+  margin-top: 3rem;
+
+  h1{
+    color: var(--accent-color);
+  }
+
+  strong{
+    color: var(--background-color);
+  }
+}

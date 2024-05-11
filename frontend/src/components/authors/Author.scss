@@ -1,0 +1,41 @@
+@import "../../index.scss";
+@import "../../../generalsass/responsive.scss";
+
+
+
+.author_container{
+    @include page_margin;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background-color: aliceblue;
+    margin-top: 3rem;
+
+    h2 {
+    font-size: 28px;
+  }
+
+
+    .Author_wrapper{
+      
+     @include centeredElement;
+
+
+      .author{
+        width: 200px;
+        height: auto;
+        padding: 10px;
+        @include centerVertical;
+        gap: 1rem;
+
+        img{
+            width: 135px;
+            height: 135px;
+            border: 5px solid var(--accent-color);
+            border-radius: 50%;
+        }
+      }
+    }
+}

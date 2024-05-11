@@ -1,0 +1,83 @@
+@import '../../index.scss';
+@import '../../../generalsass/responsive.scss';
+
+
+.blog_main_container {
+    @include page_margin;
+
+    .blog_main_wrapper {
+        width: inherit;
+        height: 350px;
+        background: url('../../../public/assets/idea.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        @include centeredElement;
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, .4);
+            z-index: 2;
+
+        }
+
+
+        .search_components {
+            width: 100%;
+            height: 200px;
+            @include centeredElement;
+            gap: .6rem;
+
+
+            #search {
+                width: 60%;
+                height: 50px;
+                border-radius: 10px;
+                outline: none;
+                background-color: var(--background-color);
+                padding: 10px 15px;
+                font-family: poppins;
+                z-index: 222;
+                font-size: 16px;
+                font-weight: 450;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            select {
+                width: 20%;
+                height: 50px;
+                border-radius: 10px;
+                font-family: poppins;
+                background-color: var(--background-color);
+                font-size: 16px;
+                z-index: 222;
+            }
+        }
+    }
+
+
+
+    .blogs_container {
+        margin-top: 2rem;
+        @include centeredElement;
+        flex-wrap: wrap;
+        gap: .7rem;
+    }
+
+    .controls {
+        margin-top: 2rem;
+        @include centeredElement;
+        gap: 10rem;
+
+        span{
+            @include centeredElement;
+            font-size: 23px;
+        }
+    }
+}
