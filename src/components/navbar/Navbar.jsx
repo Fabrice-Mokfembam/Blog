@@ -33,12 +33,12 @@ function Navbar() {
       </div>
 
       <div className={`sidebar ${ open ? 'active': null }`}>
-         <Link to="/">Home</Link>
-        <Link to="/blogs">Blogs</Link>
-        <Link to="/authors">Authors</Link>
-        <Link to="/create">Create Blog</Link>
-        <Link to="/profile"> Profile </Link>
-        <Link to="/registration">Sign up</Link>
+         <Link onClick={()=>{setOpen(false)}} to="/">Home</Link>
+        <Link onClick={()=>{setOpen(false)}} to="/blogs">Blogs</Link>
+        <Link onClick={()=>{setOpen(false)}} to="/authors">Authors</Link>
+        <Link onClick={()=>{setOpen(false)}} to="/create">Create Blog</Link>
+        <Link onClick={()=>{setOpen(false)}} to="/profile"> Profile </Link>
+        <Link onClick={()=>{setOpen(false)}} to="/registration">Sign up</Link>
       </div>
     </nav>
   );

@@ -7,8 +7,8 @@
 
     .blog_main_wrapper {
         width: inherit;
-        height: 350px;
-        background: url('../../assets/idea.jpg') no-repeat;
+        height: 450px;
+        background: url('../../assets/blog.webp') no-repeat;
         background-size: cover;
         background-position: center;
         position: relative;
@@ -68,6 +68,10 @@
         @include centeredElement;
         flex-wrap: wrap;
         gap: .7rem;
+        padding: 10px;
+
+        @include large{
+     justify-content: center;}
     }
 
     .controls {

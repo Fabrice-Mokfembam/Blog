@@ -1,80 +1,96 @@
 @import '../../index.scss';
 @import '../../../generalsass/responsive.scss';
 
-.blog_card{
-  max-width: 290px;
+.blog_card {
+  max-width: 360px;
   min-width: 280px;
-  border: 1px solid var(--secondary-color);
+  border: 2px solid var(--secondary-color);
   border-radius: 6px;
   padding: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 28px;
+  margin: 10px .5rem;
 
-   @include x-small{
+  @include x-small {
     max-width: 100%;
-   }
-  
+  }
 
-  .image_container{
+
+  .image_container {
     width: inherit;
     border-radius: inherit;
     position: relative;
 
-    
-    .category{
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        padding: 4px 20px;
-        background-color: var(--secondary-color);
-        border-radius: 8px;
+
+    .category {
+      position: absolute;
+      top: 0;
+      right: 5px;
+      padding: 4px 20px;
+      background-color: var(--text-color);
+      border-radius: 8px;
+      color: var(--secondary-color);
     }
-    
-   img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: inherit;
 
-    
-   }
+    img {
+      width: 100%;
+      height: 35vh;
+      object-fit: cover;
+      border-radius: 8px;
 
-  
+
+    }
+
+
   }
 
-  h4,h5{
+  h4 {
     color: var(--text-color);
     line-height: 1.6rem;
   }
-  h2{
-    margin: 3px 0px;
+
+  .h4 {
+    margin-top: -15px;
+    margin-bottom: 13px;
+    font-size: 17px;
   }
 
-  .profile_card{
+  h2 {
+    margin: 3px 0px;
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .profile_card {
     display: flex;
     align-items: center;
     padding: 5px 0px;
     gap: 10px;
 
 
-    h4{
-        font-weight: 450;
+    h4 {
+      font-weight: 450;
+      font-size: 16.4px;
     }
 
 
-    img{
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
+    img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
 
     }
   }
 
-  .read{
+  .read {
     position: absolute;
-    right: 10px;
+    right: 25px;
     bottom: 25px;
   }
 }

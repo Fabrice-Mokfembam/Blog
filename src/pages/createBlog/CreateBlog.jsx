@@ -1,30 +1,78 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useRef } from "react";
 import "./CreateBlog.scss";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import FileBase64 from "react-file-base64";
+import { ID } from "../../context/idContext";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { blogContext } from "../../context/blogsContext";
 
 function CreateBlog() {
   const [imageUrl, setImageUrl] = useState("");
   const [textContent, setTextContent] = useState("");
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
-  const [showreview, setShowReview] = useState(false);
+  const { id } = useContext(ID);
+  const quillRef = useRef(null);
+  const navigate = useNavigate();
+  const { blogs, setBlogs} = useContext(blogContext);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [authError, setAuthError] = useState(null);
 
   function handleImageChange({ base64 }) {
     console.log(base64);
     setImageUrl(base64);
   }
+
   function handleCategoryChange(e) {
     setCategory(e.target.value);
   }
+
   function handletextcontentChange(value) {
     setTextContent(value);
   }
 
+  async function PostBlog(e) {
+    e.preventDefault();
+    if (!id) {
+      setAuthError(true);
+      return
+    }
+    setIsLoading(true);
+
+    const body = {
+      userId: id,
+      title,
+      text_content: textContent,
+      image: imageUrl,
+      category,
+    };
+
+    try {
+      const data = await axios.post('http://localhost:5000/api/blogs/create', body);
+      console.log(data)
+      setBlogs(prev => [data,...prev])
+      console.log("Blog posted successfully");
+      setImageUrl("");
+      setTextContent("");
+      setTitle("");
+      setCategory("");
+      navigate("/blogs");
+    } catch (error) {
+      console.error("Error posting blog:", error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <div className="create_main_container">
-      <form>
+      <form onSubmit={PostBlog}>
+        {authError && <div className="error">Sign Up or Sign In</div>}
         <div className="title">
           <label htmlFor="title">Title</label>
           <input
@@ -32,6 +80,7 @@ function CreateBlog() {
             id="title"
             placeholder="Enter a Title"
             onChange={(e) => {
+              setAuthError(null)
               setTitle(e.target.value);
             }}
             required
@@ -40,8 +89,9 @@ function CreateBlog() {
         <div className="image">
           <FileBase64 type="file" multiple={false} onDone={handleImageChange} />
         </div>
-        <ReactQuill className="quill" onChange={handletextcontentChange} />
+        <ReactQuill ref={quillRef} className="quill" onChange={handletextcontentChange} />
         <div className="category">
+          Category
           <label htmlFor="engineering">
             <input
               type="radio"
@@ -83,30 +133,11 @@ function CreateBlog() {
             General
           </label>
         </div>
-
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            setShowReview(true);
-          }}
-        >
-          ADD
+        {error && <div className="error">{error}</div>}
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Loading..." : "Add"}
         </button>
       </form>
-
-      {showreview && (
-        <div className="review">
-          <div>
-            <h3>{title}</h3>
-            {imageUrl && <img src={imageUrl} alt="" />}
-            <h5>{category}</h5>
-            <div>{textContent}</div>
-            <p onClick={() => {
-              setShowReview(false);
-            }}>X</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

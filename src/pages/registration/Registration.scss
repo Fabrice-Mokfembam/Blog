@@ -17,5 +17,16 @@
                 background-color: aliceblue;
             }
         }
+
+        label:nth-child(3){
+              position: relative;
+
+              .eye_icon{
+                position: absolute;
+                right: 20px;
+                top: 15px;
+                font-size: 17px;
+              }
+        }
     }
 }

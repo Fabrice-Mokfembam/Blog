@@ -52,7 +52,17 @@
                 }
             }
         }
-    
+
+     label:nth-child(2){
+              position: relative;
+
+              .eye_icon{
+                position: absolute;
+                right: 20px;
+                top: 15px;
+                font-size: 17px;
+              }
+            }
         .div{
             width: 100%;
             display: flex;

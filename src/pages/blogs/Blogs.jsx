@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Blogs.scss';
 import blogData from '../../data.js';
 import BlogCard from '../../components/BlogCard/BlogCard';
+import { blogContext } from '../../context/blogsContext.js';
+import { getAuthorName } from '../../helpers.js';
+import { UserContext } from '../../context/UserContext.js';
+
 
 function Blogs() {
   const [pageNumber, setPageNumber] = useState(1);
+  const { blogs } = useContext(blogContext);
+   const { authors } = useContext(UserContext);
 
   const CardPerPage = 10;
   var indexOfLastElement = CardPerPage * pageNumber;
@@ -22,8 +28,7 @@ function Blogs() {
     const totalPages = Math.ceil(blogData.length / CardPerPage);
       if (pageNumber < totalPages) {
       setPageNumber(pageNumber + 1);
-      }
-      
+      } 
       console.log('index 1st:', indexOfFirstElement, '/n', 'index last:', indexOfLastElement);
   };
 
@@ -44,16 +49,17 @@ function Blogs() {
 
       <div className="blogs_container">
         {
-          blogData.slice(indexOfFirstElement, indexOfLastElement).map((item) => (
+          blogs.slice(indexOfFirstElement, indexOfLastElement).map((item,index) => (
             <BlogCard
-              key={item.title}
+              key={index}
+              blogId={item._id}
               title={item.title}
-              date={item.date}
-              cardImg={item.imgSrc}
+              date={item.createdAt}
+              cardImg={item.image}
           
-              textContent={item.textContent}
-              profileImg={item.profileImgSrc}
-              name={item.author}
+              textContent={item.text_content}
+              profileImg={item.userId}
+              name={item.userId}
             />
           ))
         }

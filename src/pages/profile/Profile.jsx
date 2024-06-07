@@ -1,25 +1,43 @@
-import React from "react";
+import React , {useContext} from "react";
 import { BsHeart, BsPeople, BsChatDots } from "react-icons/bs";
 import "./Profile.scss";
 import img from "../../assets/remix1.jpg";
 
 import BlogCard from "../../components/BlogCard/BlogCard";
 import blogData from "../../data";
+import { UserContext } from "../../context/UserContext";
+import { blogContext } from "../../context/blogsContext";
+import { ID } from "../../context/idContext";
+import { getAuthorImage } from "../../helpers";
 
 function Profile() {
+  const { blogs } = useContext(blogContext);
+  const { authors } = useContext(UserContext);
+  const { id } = useContext(ID)
+  
+  const currentUser = authors.filter((author) => {
+    return author._id === id;
+  })[0];
+
+  const blogsOfCurrentUser = blogs.filter((blog) => {
+    return blog.userId === id;
+  })
+
+  console.log(blogsOfCurrentUser)
+
   return (
     <div className="profile_main_container">
       <div className="profile_top_section">
         <div className="profile_details_left">
-          <img src={img} alt="" />
+          <img src={getAuthorImage(id,authors)} alt="" />
           <div className="profile_credentials">
             <div>
-              <h2>Enow Takem Ebai</h2>
+              <h2>{ currentUser.name}</h2>
               <h4>Author</h4>
             </div>
             <div>
               <h4>Disciplines:</h4>
-              <h4>Engineering</h4>
+              <h4>{ currentUser.category}</h4>
             </div>
           </div>
         </div>
@@ -43,15 +61,15 @@ function Profile() {
           </div>
           <div className="profile_bottom_section">
                  {
-          blogData.slice(4).map((item) => (
+          blogsOfCurrentUser.slice(4).map((item,index) => (
             <BlogCard
-              key={item.title}
+              key={index}
               title={item.title}
-              date={item.date}
-              cardImg={item.imgSrc}
-              textContent={item.textContent}
-              profileImg={item.profileImgSrc}
-              name={item.author}
+              date={item.createdAt}
+              cardImg={item.image}
+              textContent={item.text_content}
+              profileImg={id}
+              name={id}
             />
           ))
         }

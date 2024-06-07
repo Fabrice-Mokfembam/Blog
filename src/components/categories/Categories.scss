@@ -14,6 +14,7 @@
 
   h2 {
     font-size: 30px;
+    color: var(--secondary-color)
   }
 
   .category_wrapper {
@@ -26,7 +27,7 @@
       width: 200px;
       height: 150px;
       padding: 2rem 1.5rem;
-      box-shadow: 0px 0px 6px var(--secondary-color);
+      box-shadow: 0px 2px 4px rgb(202, 200, 200);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -45,6 +46,7 @@
         .category_icon{
             width: 100%;
             height: 100%;
+            color: var(--primary-color);
         }
       }
 
